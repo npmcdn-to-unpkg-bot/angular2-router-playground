@@ -1,6 +1,8 @@
 import { NgModule }       from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
 import { FormsModule }    from '@angular/forms';
+import { LocationStrategy, HashLocationStrategy} from '@angular/common';
+
 
 import { AppComponent }       from './app.component';
 import { routing,
@@ -25,7 +27,8 @@ import { DialogService }  from './dialog.service';
   ],
   providers: [
     appRoutingProviders,
-    DialogService
+    DialogService,
+    {provide: LocationStrategy, useClass: HashLocationStrategy}
   ],
   bootstrap: [ AppComponent ]
 })
